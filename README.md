@@ -1,0 +1,1 @@
+# serverless-apigw-canary-settings
