@@ -33,8 +33,17 @@ class ApiGWCanaryDeploymentCreation {
       this.fillInPermissions(resources, lambdaVersionResourceKey, lambdaResourceKey)
     })
 
+    this.serverless.cli.log(this.options['canaryDeployment'])
+    if (this.options['canaryDeployment'] == "true") {
+      this.setupCanarySettings(resources)
+    }
+  }
+
+  setupCanarySettings(resources) {
+    let settings = this.apiGwCanarySettings()
+    this.serverless.cli.log(settings['canary']['trafficInPercentages'])
     _.find(resources, ['Type', 'AWS::ApiGateway::Deployment']).Properties['DeploymentCanarySettings'] = {
-      "PercentTraffic": 0
+      "PercentTraffic": settings['canary']['trafficInPercentages']
     }
   }
 
@@ -54,6 +63,10 @@ class ApiGWCanaryDeploymentCreation {
     Object.defineProperty(resources, keyToSearch + this.uuidv4(),
       Object.getOwnPropertyDescriptor(resources, permissionKey));
     delete resources[permissionKey];
+  }
+
+  apiGwCanarySettings() {
+    return this.serverless.service.custom.apiGatewayDeployment
   }
 
   uuidv4() {
