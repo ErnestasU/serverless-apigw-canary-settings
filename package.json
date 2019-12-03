@@ -1,0 +1,23 @@
+{
+  "name": "serverless-apigw-canary-settings",
+  "version": "1.0.0",
+  "description": "Canary releases for API Gateway",
+  "main": "api-gw-canary-settings.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ernestasdeveloper/serverless-apigw-canary-settings.git"
+  },
+  "keywords": [
+    "API",
+    "Gateway",
+    "Canary",
+    "Serverless",
+    "AWS"
+  ],
+  "author": "Ernestas",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ernestasdeveloper/serverless-apigw-canary-settings/issues"
+  },
+  "homepage": "https://github.com/ernestasdeveloper/serverless-apigw-canary-settings#readme"
+}
