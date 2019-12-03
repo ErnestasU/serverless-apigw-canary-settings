@@ -11,6 +11,11 @@ Second point above enables API Gateway canary deployments since it binds concret
 It allows _base version_ to point to concrete deployment, whilst canary can point to not yet promoted version. Using this principle,
 Blue/Green deployment can be achieved, meaning that canary can take either 100% or 0% traffic if needed. 
 
+
+#### Installation
+
+Run `npm install --save-dev serverless-apigw-canary-settings`, and add this plugin to `serverless.yml`. It will hook to package phase, meaning either `package` or `deploy` phases will trigger this plugin if used as specified below. 
+
 #### Usage
 
 Add custom settings for canary in `serverless.yml` file:
