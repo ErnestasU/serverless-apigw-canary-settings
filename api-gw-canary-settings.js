@@ -33,7 +33,6 @@ class ApiGWCanaryDeploymentCreation {
       this.fillInPermissions(resources, lambdaVersionResourceKey, lambdaResourceKey)
     })
 
-    this.serverless.cli.log(this.options['canaryDeployment'])
     if (this.options['canaryDeployment'] == "true") {
       this.setupCanarySettings(resources)
     }
@@ -41,9 +40,13 @@ class ApiGWCanaryDeploymentCreation {
 
   setupCanarySettings(resources) {
     let settings = this.apiGwCanarySettings()
-    this.serverless.cli.log(settings['canary']['trafficInPercentages'])
-    _.find(resources, ['Type', 'AWS::ApiGateway::Deployment']).Properties['DeploymentCanarySettings'] = {
-      "PercentTraffic": settings['canary']['trafficInPercentages']
+    if (typeof settings == 'undefined') {
+      this.serverless.cli.log("Unspecified canary deployment settings, skipping.")
+    } else {
+      this.serverless.cli.log("Canary deployment with traffic for canary: " + settings['canary']['trafficInPercentages'] + "%")
+      _.find(resources, ['Type', 'AWS::ApiGateway::Deployment']).Properties['DeploymentCanarySettings'] = {
+        "PercentTraffic": settings['canary']['trafficInPercentages']
+      }
     }
   }
 

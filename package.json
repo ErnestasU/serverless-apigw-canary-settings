@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/ernestasdeveloper/serverless-apigw-canary-settings/issues"
   },
-  "homepage": "https://github.com/ernestasdeveloper/serverless-apigw-canary-settings#readme"
+  "homepage": "https://github.com/ernestasdeveloper/serverless-apigw-canary-settings#readme",
+  "dependencies": {
+    "ng": "0.0.0",
+    "np": "^5.2.1"
+  }
 }
