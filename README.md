@@ -1,6 +1,6 @@
 ###
 
-This is the plugin of `serverless.com` framework which let's to create canary deployment for API Gateway.
+This is the plugin of `Serverless` framework which let's to create canary deployment for API Gateway.
 
 This addresses two things:
 
