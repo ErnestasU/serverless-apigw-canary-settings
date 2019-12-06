@@ -1,6 +1,6 @@
 {
   "name": "serverless-apigw-canary-settings",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Canary releases for API Gateway",
   "main": "api-gw-canary-settings.js",
   "repository": {
